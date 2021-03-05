@@ -1,0 +1,86 @@
+<ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+<h1 >Liste des commentaires</h1>
+<table id="customers">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Contenu</th>
+
+
+        <th>supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for commentaire in commentaire %}
+        <tr>
+            <td>{{ commentaire.id }}</td>
+            <td>{{ commentaire.contenu }}</td>
+
+            <td>
+                <a href="/delete3/{{ commentaire.id }}"
+                   onclick="return confirm('Etes-vous sûr de supprimer cette publication?');">Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br><br>
+
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #4CAF50;
+    }
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+</style>
