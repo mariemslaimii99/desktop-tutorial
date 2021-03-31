@@ -31,6 +31,10 @@ class Client
      * @ORM\Column(type="string", length=255)
      */
     private $email;
+    /**
+     * @ORM\OneToOne(targetEntity=Panier::class, cascade={"persist", "remove"})
+     */
+    private $paniers;
 
     public function getId(): ?int
     {
@@ -69,6 +73,17 @@ class Client
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+    public function getPaniers(): ?Panier
+    {
+        return $this->paniers;
+    }
+
+    public function setPaniers(?Panier $paniers): self
+    {
+        $this->paniers = $paniers;
 
         return $this;
     }

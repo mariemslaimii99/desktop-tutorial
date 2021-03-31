@@ -47,4 +47,17 @@ class ClientRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function Recherche($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->Where('c.nom LIKE :val')
+            ->OrWhere('c.prenom LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+
+
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

@@ -47,4 +47,16 @@ class CommentaireRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function test()
+    {
+        return $this->createQueryBuilder('e')
+            ->Where('e.contenu LIKE :val')
+            ->OrWhere('e.contenu LIKE :val1')
+            ->setParameter('val', '%fdp%')
+            ->setParameter('val1', '%putain%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }

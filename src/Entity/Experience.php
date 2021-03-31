@@ -35,8 +35,8 @@ class Experience
     private $Description;
 
     /**
-     * @ORM\Column(type="string", length=1)
-     *  @Assert\Choice({"1", "2", "3","4","5"})
+     * @ORM\Column(type="integer", length=1)
+     *
      */
     private $Note;
 
@@ -54,6 +54,17 @@ class Experience
      * @ORM\Column(type="datetime")
      */
     private $Date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\File(mimeTypes={"image/jpeg"})
+     */
+    private $Image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $endroit;
 
     public function getId(): ?int
     {
@@ -84,12 +95,12 @@ class Experience
         return $this;
     }
 
-    public function getNote(): ?string
+    public function getNote(): ?int
     {
         return $this->Note;
     }
 
-    public function setNote(string $Note): self
+    public function setNote(int $Note): self
     {
         $this->Note = $Note;
 
@@ -128,6 +139,30 @@ class Experience
     public function setDate(\DateTimeInterface $Date): self
     {
         $this->Date = $Date;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->Image;
+    }
+
+    public function setImage( $Image)
+    {
+        $this->Image = $Image;
+
+        return $this;
+    }
+
+    public function getEndroit(): ?string
+    {
+        return $this->endroit;
+    }
+
+    public function setEndroit(string $endroit): self
+    {
+        $this->endroit = $endroit;
 
         return $this;
     }

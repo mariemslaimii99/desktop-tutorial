@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des events</title>
+</head>
+<body>
+<table id="customers">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>nom_event</th>
+        <th>nom_endroit</th>
+        <th>type</th>
+        <th>Nb_place_max</th>
+        <th>lieu_depart</th>
+        <th>date_depart</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for Event in Event %}
+        <tr>
+            <td>{{ Event.id }}</td>
+            <td>{{ Event.NomEvent}}</td>
+            <td>{{ Event.nomEndroit}}</td>
+            <td>{{ Event.Type}}</td>
+            <td>{{ Event.nbPlaceMax}}</td>
+            <td>{{ Event.LieuDepart }}</td>
+            <td>{{ Event.DateDepart|date('Y-m-d')}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+</style>

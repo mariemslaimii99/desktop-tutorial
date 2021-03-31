@@ -106,7 +106,7 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">News</a></li>
+                            <li><a href="/list2">Forum</a></li>
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
@@ -132,9 +132,14 @@
             <div class="col-lg-8">
                 <div class="consultation__form">
                     <div class="section-title">
-                        <span>Ajouter</span>
+                        {% if value==1 %}
+                        <span style="color:red">Vous avez utilisé un gros mot dans votre commentaire.Veuillez écrire votre commentaire de nouveau</span>
+                        <br>
+                        {% endif %}
+
+
                         <h2>Votre commentaire</h2>
-                    </div>
+                    </br>
 
                     {{ form_start(form) }}
 

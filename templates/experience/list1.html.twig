@@ -1,9 +1,13 @@
+
 <ul>
     <li><a class="active" href="#home">Home</a></li>
     <li><a href="#news">News</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#about">About</a></li>
 </ul>
+
+
+
 <h1 >Liste des publications</h1>
 <table id="customers">
     <thead>
@@ -11,8 +15,8 @@
         <th>Nom</th>
         <th>titre</th>
         <th>note</th>
+        <th>endroit</th>
 
-        <th>supprimer</th>
     </tr>
     </thead>
     <tbody>
@@ -21,17 +25,18 @@
             <td>{{ experience.id }}</td>
             <td>{{ experience.titre }}</td>
             <td>{{ experience.note }}</td>
-            <td>
-                <a href="/delete2/{{ experience.id }}"
-                   onclick="return confirm('Etes-vous sûr de supprimer cette publication?');">Supprimer</a>
-            </td>
+            <td>{{ experience.endroit }}</td>
+
         </tr>
     {% endfor %}
     </tbody>
+
 </table>
 
 <br><br>
+{% block js  %}
 
+{% endblock %}
 <style>
     ul {
         list-style-type: none;
@@ -84,3 +89,6 @@
     }
 
 </style>
+
+
+

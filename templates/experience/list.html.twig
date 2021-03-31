@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+
+
 {% endblock %}
 </head>
 
@@ -84,24 +86,18 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="header__menu__option">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="./about.html">About</a></li>
-                            <li><a href="./services.html">Services</a></li>
-                            <li class="active"><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./pricing.html">Pricing</a></li>
-                                    <li><a href="./doctor.html">Doctor</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">News</a></li>
+                            <li><a href="/">Accueil</a></li>
+                            <li><a href="/list12/{{ client.id }}">Evemenement</a></li>
+                            <li><a href="/produits/{{ client.id }}">Produits</a></li>
+
+                            <li><a href="/list2/{{ client.id }}">Forum</a></li>
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
@@ -138,6 +134,43 @@
 <!-- Breadcrumb Section End -->
 
 <!-- Doctor Section Begin -->
+<div class="col-lg-10">
+
+    <div class="header__menu__option">
+        <nav class="header__menu">
+            <ul>
+                <li class="active"><a href="#">Trier Par</a>
+                    <ul class="dropdown">
+                        <li><a href="/listtriepardate/{{ client.id }}">Date</a></li>
+                        <li><a href="/listtrieparnote/{{ client.id }}">Note</a></li>
+                       
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+
+    </div>
+    <i class="fa fa-map-marker"></i> <span id="location"></span>
+    <span > :</span>
+    <span id="weather"></span>
+    <div></div>
+    <span >T°  :</span>
+    <span id="temp"></span>
+    <span >C°</span>
+      <img src="" id="icon">
+    <div class="col-lg-4 col-md-8">
+        <div class="footer__newslatter">
+            <form method="POST">
+                <input type="text" name="Recherche" style="color:#4c659b;">
+                <button type="submit" class="site-btn">Recherche</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<section class="hero spad set-bg" data-setbg="{{ asset('img/natta.jpg') }}">
+
 <section class="doctor spad">
     <div class="container">
         {% for experience in experience %}
@@ -145,7 +178,7 @@
             <div class="row">
                 <div class="col-lg-6 order-lg-1">
                     <div class="doctor__item__pic">
-                        <img src="{{ asset('img/nature.jpg') }}" alt="">
+                        <img src="{{ asset('uploads/images/'~ experience.Image) }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-2">
@@ -159,13 +192,20 @@
 
             {% endfor %}</span>
                         <h2>{{ experience.Titre }}</h2>
-                        <p>{{  experience.Date|date('Y-m-d') }}</p>
-                        <p>{{  experience.Note }}/5</p>
+                        
+                        <p>Date de l'experience:   {{  experience.Date|date('Y-m-d') }}</p>
 
 
+                            <div class="rating">
+                            {% for i in   1..experience.Note %}
 
+                                <i class="fa fa-star"></i>
+                            {% endfor %}
+                            </div>
+
+
+                        <p>{{ experience.endroit }}</p>
                         <p>{{ experience.Description }}</p>
-
 
                             {% if client.id==experience.idclient %}
                                  <a href="/edit2/{{ client.id }}/{{ experience.id }}" >Modifier</a>
@@ -182,8 +222,20 @@
             </div>
         </div>
 {% endfor %}
+
+
+        <div class="navigation" style="text-align:center" align="center">
+            {{ knp_pagination_render(experience) }}
+
+        </div>
     </div>
+
 </section>
+
+
+
+
+    </section>
 <!-- Doctor Section End -->
 
 <!-- Footer Section Begin -->
@@ -298,6 +350,24 @@
 <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+   <script src="{{ asset('js/scripts.js')}}"></script>
+<script tyep="text/javascript ">
+link = "https://api.openweathermap.org/data/2.5/weather?q=tunis&appid=bbe2698723b97523c1cb773cf13f1cb5";
+var request = new XMLHttpRequest();
+request.open('GET',link,true);
+request.onload = function() {
+    var obj = JSON.parse(this.response);
+    console.log(obj);
+    document.getElementById('weather').innerHTML = obj.weather[0].description;
+    document.getElementById('location').innerHTML = obj.name;
+    document.getElementById('temp').innerHTML = obj.main.temp - 273.15;
+    document.getElementById('icon').src = "http://openweathermap.org/img/w/" + obj.weather[0].icon + ".png";
+}
+if(request.status==200){
+console.log("ERROR");
+}
+request. send();
+</script>
 {% endblock %}
 </body>
 </html>

@@ -18,23 +18,36 @@ class ExperienceRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Experience::class);
     }
-
+    public function listOrderByDate()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.Date', 'DESC')
+            ->getQuery()->getResult();
+    }
+    public function listOrderByNote()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.Note', 'DESC')
+            ->getQuery()->getResult();
+    }
     // /**
     //  * @return Experience[] Returns an array of Experience objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function Recherche($value)
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
+            ->Where('e.Titre LIKE :val')
+            ->OrWhere('e.Description LIKE :val')
+            ->OrWhere('e.endroit LIKE :val')
+            ->setParameter('val', '%'.$value.'%')
+
+
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Experience

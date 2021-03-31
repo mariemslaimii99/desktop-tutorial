@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{asset('https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css')}}">
     {% endblock %}
 </head>
 
@@ -84,24 +85,18 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <h2>OUTDOOR.tn</h2>
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="header__menu__option">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="./about.html">About</a></li>
-                            <li><a href="./services.html">Services</a></li>
-                            <li class="active"><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./pricing.html">Pricing</a></li>
-                                    <li><a href="./doctor.html">Doctor</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">News</a></li>
+                            <li><a href="/">Accueil</a></li>
+                            <li><a href="/list12/{{ client.id }}">Evemenement</a></li>
+                            <li><a href="/produits/{{ client.id }}">Produits</a></li>
+
+                            <li><a href="/list2/{{ client.id }}">Forum</a></li>
                             <li><a href="./contact.html">Contact</a></li>
                         </ul>
                     </nav>
@@ -138,6 +133,7 @@
 <!-- Breadcrumb Section End -->
 
 <!-- Doctor Section Begin -->
+<section class="hero spad set-bg" data-setbg="{{ asset('img/natta.jpg') }}">
 <section class="doctor spad">
     <div class="container">
 
@@ -151,6 +147,7 @@
                     <div class="col-lg-6 order-lg-2">
                         <div class="doctor__item__text">
                         <span>{% for client in clients  %}
+
             {% if client.id==experience.idclient %}
                                 <td>
                 {{ client.nom }}  {{ client.prenom }}</td>
@@ -159,8 +156,46 @@
 
            </span>
                             <h2>{{ experience.Titre }}</h2>
+                            <p>{{ experience.Points }}</p>
                             <p>{{ experience.Description }}</p>
+                            <div class="rating">
+                                {% for i in   1..experience.Note %}
 
+                                    <i class="fa fa-star"></i>
+                                {% endfor %}
+                            </div>
+                            {% set foo = 0 %}
+                            {% for rate in rating %}
+                                {% if rate.idclient==client.id %}
+                                    {% if  rate.idexperience==experience.id %}
+                                        {% set foo = 1 %}
+                                    {% endif %}{% endif %}
+                            {% endfor %}
+                            {% if foo==0 %}
+
+                                <form action="" method="post">
+                                    <div class="stars">
+                                        <i class="lar la-star" data-value="1"></i><i class="lar la-star" data-value="2"></i><i class="lar la-star" data-value="3"></i><i class="lar la-star" data-value="4"></i><i class="lar la-star" data-value="5"></i>
+                                    </div>
+                                    <input type="hidden" name="note" id="note">
+                                    <button type="submit" class="primary-btn normal-btn">Rate!</button>
+
+                                </form>
+                            {% endif %}
+
+                            <br>
+                            {% set foo = 0 %}
+                            {% for like in likes %}
+                                {% if like.idclient==client.id %}
+                                    {% if  like.idexperience==experience.id %}
+                                        {% set foo = 1 %}
+                                    {% endif %}{% endif %}
+                            {% endfor %}
+                            {% if foo==0 %}
+
+                                <a href="/list8/{{ client.id }}/{{ experience.id }}" >J'aime!</a>
+                            {% endif %}
+                            </div>
                             {% for commentaire in commentaire %}
 
 
@@ -186,7 +221,6 @@
                             {% endfor %}
                             <br>
 
-
                             <div class="doctor__item__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -200,6 +234,7 @@
             </div>
 
     </div>
+</section>
 </section>
 <!-- Doctor Section End -->
 
@@ -315,6 +350,7 @@
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/scripts.js')}}"></script>
 {% endblock %}
 </body>
 </html>

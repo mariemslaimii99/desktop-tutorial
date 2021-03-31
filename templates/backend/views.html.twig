@@ -1,0 +1,183 @@
+<!doctype html>
+<!--
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Users | Bootstrap Simple Admin Template</title>
+    <link href="{{ asset('assets1/assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/assets/vendor/fontawesome/css/solid.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/assets/vendor/fontawesome/css/brands.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/assets/vendor/datatables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets1/assets/css/master.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css')}}" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" >
+</head>
+
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="active">
+        <div class="sidebar-header">
+            <img src="{{ asset('assets1/assets/img/bootstraper-logo.png') }}" alt="bootraper logo" class="app-logo">
+        </div>
+        <ul class="list-unstyled components text-secondary">
+
+
+            <li>
+                <a href="/admin/users"><i class="fas fa-user"></i> Utilisateurs</a>
+            </li>
+            <li>
+                <a href="/admin/guides"><i class="fas fa-table"></i> Guides</a>
+            </li>
+
+
+        </ul>
+    </nav>
+    <div id="body" class="active">
+        <nav class="navbar navbar-expand-lg navbar-white bg-white">
+            <button type="button" id="sidebarCollapse" class="btn btn-light"><i class="fas fa-bars"></i><span></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <div class="nav-dropdown">
+                            <a href="" class="nav-item nav-link dropdown-toggle text-secondary" data-toggle="dropdown"><i class="fas fa-link"></i> <span>RH</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-link-menu">
+                                <ul class="nav-list">
+                                    <li><a href="/admin/ajoutguide" class="dropdown-item"><i class="fas fa-list"></i> Ajouter un guide</a></li>
+                                    <div class="dropdown-divider"></div>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="nav-dropdown">
+                            <a href="" class="nav-item nav-link dropdown-toggle text-secondary" data-toggle="dropdown"><i class="fas fa-user"></i> <span>John Doe</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-link-menu">
+                                <ul class="nav-list">
+
+                                    <li><a href="/deconnexion" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container">
+                <div class="page-title">
+                    <h3>Views
+                        <a href="/admin/pdf1" class="btn btn-sm btn-outline-primary float-right"><i class="fas fa-user-shield"></i> Imprimer </a>
+                    </h3>
+                </div>
+                <div>
+
+                <div class="box box-primary">
+                    <script src="{{ asset('assets1/jquery.min.js') }}"></script>
+                    <input type="search" class="form-control form-control-sm" placeholder="rechercher" aria-controls="dataTables-example" id="search">                </div>
+
+                <div class="box-body">
+                        <table width="100%" class="table table-hover" id="tableac">
+                            <thead>
+                            <tr>
+                                <th>Nom du route</th>
+                                <th>Date de visite</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for view in views %}
+                                <tr>
+                                    <td>{{ view.routename }}</td>
+                                    <td>{{ view.visitdate|format_datetime() }}</td>
+                                </tr>
+
+                            {% endfor %}
+                            <div>
+                                {{ knp_pagination_render(views) }}
+                            </div>
+                            <script>
+                                $(document).ready(function(){
+                                    $('#search').keyup(function(){
+                                        search_table($(this).val());
+                                    });
+                                    function search_table(value){
+                                        $('#tableac tbody tr').each(function(){
+                                            var found = 'false';
+                                            $(this).each(function(){
+                                                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                                {
+                                                    found = 'true';
+                                                }
+                                            });
+                                            if(found == 'true')
+                                            {
+                                                $(this).show();
+
+                                            }
+                                            else
+                                            {
+                                                $(this).hide();
+
+                                            }
+                                        });
+                                    }
+                                });
+                            </script>
+                            </tbody>
+                        </table>
+                        <canvas id="myChart" width="50" height="50"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('assets1/assets/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets1/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets1/assets/vendor/datatables/datatables.min.js') }}"></script>
+<script src="{{ asset('assets1/assets/js/initiate-datatables.js') }}"></script>
+<script src="{{ asset('assets1/assets/js/script.js') }}"></script>
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js') }}" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{  endroit|raw }},
+            datasets: [{
+                label: 'Note total endroit:',
+                data: {{  count|raw }},
+                backgroundColor: [
+
+
+                ],
+                borderColor: [
+
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
+</body>
+
+</html>
