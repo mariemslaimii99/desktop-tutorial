@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aesthetic Template">
+    <meta name="keywords" content="Aesthetic, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aesthetic | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Css Styles -->
+    {% block css %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset ('css/magnific-popup.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css') }}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" href="{{ asset('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+         {% endblock %}
+    <style>
+        img {
+            width: 50%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__logo">
+        <a href=""><img src="{{ asset('img/logo.png') }}" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__btn">
+        <a href="#" class="primary-btn">Appointment</a>
+    </div>
+    <ul class="offcanvas__widget">
+        <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+        <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+        <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+    </ul>
+    <div class="offcanvas__social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+    </div>
+</div>
+<!-- Offcanvas Menu End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <ul class="header__top__left">
+                        <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+                        <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+                        <li><i class="fa fa-clock-o"></i> Mon to Sat 9:00am to 18:00pm</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="header__top__right">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href=""><img src="{{  asset('img/logo.png') }}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="header__menu__option">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="{{ path('produit_index' , {'id1':panier.id }) }}">Produit</a></li>
+                            <li><a href="{{ path('list2' , {'id':panier.id , 'id2':client.id }) }}">Panier</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header__btn">
+                        <a href="{{ path('listPDF' , {'id':panier.id }) }}" class="primary-btn">Imprimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->
+
+
+
+<!-- Consultation Section Begin -->
+<section class="hero spad set-bg" data-setbg="{{ asset('img/batata.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="consultation__form" >
+                    <div class="section-title">
+                        <h2>Mon panier</h2>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th> Produit</th>
+                                <th></th>
+                                <th> Prix
+                                </th>
+                                <th> Quantite </th>
+                                <th> Total </th>
+                                <th> </th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for commande in commande %}
+                                {% for produit in produits %}
+
+                                    {% if commande.produit==produit %}
+                                        <tr>
+
+                                        <td><img class="img-fluid rounded" src="{{ produit.img }}" alt="Image de {{ produit.nom }}" width="100" height="50"></td>
+                                        <td>{{ produit.nom }} </td>
+                                        <td>{{ produit.prix }} €</td>
+                                        <td>
+                                            {{ commande.quantite }}
+                                        </td>
+
+                                        <td>{{produit.prix * commande.quantite  }} </td>
+                                        <td>
+{#
+                                                   {{ render(controller(
+                                            'App\\Controller\\CommandeController::updateAction',
+                                                     { 'id' : commande  }
+                                            )) }}
+#}
+
+                                        </td>
+                                        <td>
+                                            <a href="/mod/{{ panier.id }}/{{ commande.id }}/{{ produit.id }}" >
+                                                <button type="button" class="btn btn-warning">Modifier</button>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('panier_sup' , {'id1':commande.id , 'id':panier.id }) }}" >
+                                                <button type="button" class="btn btn-danger">Supprimer</button>
+                                            </a>
+                                        </td>{% endif %}
+
+                                    </tr>
+                                    {% endfor %}
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+
+                        <dl class="dl-horizontal pull-right">
+
+                                {% set total = 0 %}
+                                {% for commande in commande %}
+                                    {% for produit in produits %}
+                                        {% if commande.produit==produit %}
+                                {% set total = total + ( produit.prix * commande.quantite ) %}
+                                {% endif %}
+                                    {% endfor%}
+                                {% endfor %}
+                            <dt>Total HT :</dt><dd>{{ total }} €</dd>
+
+
+
+
+
+                        </dl>
+
+
+                        <div class="clearfix"></div>
+
+                        <a href="{{ path('modifyClient' , {'id':client.id , 'id1':panier.id }) }}" class="btn btn-success pull-right">Payer</a>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+<!-- Consultation Section End -->
+
+
+<!-- Footer Section Begin -->
+<footer class="footer">
+    <div class="footer__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer__logo">
+                        <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8">
+                    <div class="footer__newslatter">
+                        <form action="#">
+                            <label>
+                                <input type="text" placeholder="Email">
+                            </label>
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer__widget">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Departments</a></li>
+                        <li><a href="#">Find a Doctor</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="footer__widget">
+                    <h5>Quick links</h5>
+                    <ul>
+                        <li><a href="#">Facial Fillers</a></li>
+                        <li><a href="#">Breast Surgery</a></li>
+                        <li><a href="#">Body Lifts</a></li>
+                        <li><a href="#">Face & Neck</a></li>
+                        <li><a href="#">Fat Reduction</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__address">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+                        <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+                        <li><i class="fa fa-envelope"></i> Support@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-6">
+                <div class="footer__map">
+                    <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                            height="190" style="border:0" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <div class="footer__copyright__text">
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+                <div class="col-lg-5">
+                    <ul>
+                        <li>All Rights Reserved</li>
+                        <li>Terms & Use</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+{% block js %}
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}js/jquery-ui.min.js"></script>
+    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+<script>
+    function myFunction() {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById("text");
+        if (checkBox.checked == true){
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function myFunction2() {
+        var checkBox = document.getElementById("myCheck2");
+        var text = document.getElementById("text2");
+        if (checkBox.checked == true){
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+</html>
