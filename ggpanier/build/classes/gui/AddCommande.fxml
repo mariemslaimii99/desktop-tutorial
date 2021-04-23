@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="591.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddCommandeController">
+   <children>
+      <ImageView fitHeight="736.0" fitWidth="1197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/fond.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label layoutX="793.0" layoutY="217.0" text="Quantite" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <TextField fx:id="quantite" layoutX="931.0" layoutY="219.0" />
+      <Button fx:id="valider" layoutX="1036.0" layoutY="581.0" mnemonicParsing="false" onAction="#AjouterCommande" prefHeight="44.0" prefWidth="101.0" text="Valider" />
+      <Label layoutX="101.0" layoutY="319.0" prefHeight="17.0" prefWidth="131.0" text="Nom:" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="101.0" layoutY="434.0" prefHeight="17.0" prefWidth="125.0" text="Prix:" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <TextField fx:id="Nom" editable="false" layoutX="260.0" layoutY="321.0" />
+      <TextField fx:id="prix" editable="false" layoutX="260.0" layoutY="436.0" />
+      <TextField fx:id="id" editable="false" layoutX="260.0" layoutY="204.0" prefHeight="25.0" prefWidth="79.0" />
+      <Label layoutX="101.0" layoutY="202.0" text="Id" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
