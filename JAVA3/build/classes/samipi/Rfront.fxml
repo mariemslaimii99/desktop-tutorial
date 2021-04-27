@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="bouttonreser" prefHeight="570.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="samipi.RfrontController">
+   <children>
+      <TableView fx:id="eventTable" prefHeight="328.0" prefWidth="958.0">
+         <columns>
+            <TableColumn fx:id="NomColonne" prefWidth="178.0" text="Nom event" />
+            <TableColumn fx:id="TypeColonne" prefWidth="143.0" text="Type" />
+            <TableColumn fx:id="NbColonne" prefWidth="232.0" text="Nombre de place" />
+            <TableColumn fx:id="LieuColonne" prefWidth="187.0" text="Lieu de Depart" />
+            <TableColumn fx:id="DateColonnne" prefWidth="216.0" text="date" />
+         </columns>
+      </TableView>
+      <Button fx:id="an" layoutX="664.0" layoutY="358.0" mnemonicParsing="false" onAction="#annulerreservation" prefHeight="32.0" prefWidth="165.0" text="Annuler Reservation" />
+      <TextField fx:id="annuler" layoutX="146.0" layoutY="400.0" visible="false" />
+      <Button fx:id="bouttontest" layoutX="65.0" layoutY="358.0" mnemonicParsing="false" onAction="#bouttontest" prefHeight="32.0" prefWidth="238.0" text="liste des reservation" />
+     
+   </children>
+</AnchorPane>

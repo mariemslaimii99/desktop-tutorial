@@ -1,0 +1,115 @@
+.tablev{
+   -fx-border-color: #25bc45;
+    -fx-border-width: 5;
+}
+.txf{
+   -fx-border-color: #ffffff;
+    -fx-border-width: 5;
+}
+.labelt{
+   -fx-font-family: "Arial Black";
+   -fx-font-size: 18;
+}
+.buttonn
+{
+-fx-background-color: 
+    #ffffff;
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.toggle-button {
+  -fx-background-image: url('file:///C:\Users\maryem\Downloads\qrcode.png');
+
+}
+.buttonn:hover
+{
+-fx-background-color: 
+        #8EBBC6;
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.search-box{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.search-button{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30;
+}
+
+.right-bar{
+    -fx-background-color: #D3D3D3;
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.chosen-fruit-card{
+    -fx-background-color: #CCCBCB;
+    -fx-background-radius: 30;
+}
+.scroll-pane {
+  -fx-background: #F5E9E7;
+  
+}
+
+.gride {
+  -fx-background: #ffdea8;
+}
+
+.comboBox{
+    -fx-background-color: rgba(255,255,255,0.3);
+    -fx-background-radius: 30;
+}
+
+.add-btn{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 100;
+}
+
+.free-delivery-card{
+    -fx-background-color: #D3D3D3;
+    -fx-background-radius: 30;
+}
+
+.shopping-online-card{
+    -fx-background-color: #BAEAC3;
+    -fx-background-radius: 30;
+}
+
+.fruit-item{
+    -fx-background-color: #FFFFFF;
+        -fx-background-radius: 30;
+}
+
+.film-Name-Lable{
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+.combo-box-popup .list-view .list-cell:filled:hover 
+{
+    -fx-background-color: white;
+    -fx-text-fill: -fx-text-inner-color;
+}
+.combo-box-base:focused {
+    -fx-background-color: -fx-focus-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
+    -fx-background-radius: 6.4, 4, 5, 3;
+    -fx-background-insets: -1.4, 0, 1, 2;
+}
+
+
+.bodybg
+      {
+    -fx-background-image: url("/img/heart.gif");
+    -fx-background-size: 100% 100%;
+       }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java3.DisplayController">
+   <children>
+      <Accordion layoutX="251.0" layoutY="22.0" />
+      <TableView fx:id="personsTable" layoutX="45.0" layoutY="59.0" prefHeight="200.0" prefWidth="492.0">
+        <columns>
+          <TableColumn fx:id="TitreColonne" prefWidth="50.4000244140625" text="Titre" />
+          <TableColumn fx:id="DescriptionColonne" prefWidth="440.0" text="Description" />
+        </columns>
+      </TableView>
+     
+      <Button fx:id="btnDelete" layoutX="118.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonAction" text="delete" />
+      <Label fx:id="theLabel" layoutX="150.0" layoutY="312.0" />
+      <Button fx:id="display" layoutX="45.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonAction" text="display" />
+      <BarChart fx:id="stat" layoutX="487.0" layoutY="268.0" prefHeight="271.0" prefWidth="401.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Button fx:id="partitre" layoutX="117.0" layoutY="14.0" mnemonicParsing="false" onAction="#partitre" prefHeight="31.0" prefWidth="67.0" text="titre" />
+      <Button fx:id="pardescription" layoutX="184.0" layoutY="14.0" mnemonicParsing="false" onAction="#pardescription" prefHeight="31.0" prefWidth="107.0" text="description" />
+      <Label layoutX="30.0" layoutY="19.0" text="Trier par :" />
+   </children>
+</AnchorPane>

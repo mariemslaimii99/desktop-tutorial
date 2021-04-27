@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="644.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java3.Display1Controller">
+   <children>
+      <ImageView fitHeight="606.0" fitWidth="974.0" layoutX="14.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/nature.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn" layoutX="679.0" layoutY="437.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="182.0" style="-fx-background-color: #87A173;" text="Ajouter une publication" textFill="#331313" />
+      <TextField fx:id="titre" layoutX="677.0" layoutY="221.0" />
+      <TextField fx:id="description" layoutX="677.0" layoutY="258.0" />
+      <TextField fx:id="note" layoutX="677.0" layoutY="339.0" />
+      <TextField fx:id="endroit" layoutX="677.0" layoutY="297.0" />
+      <Button fx:id="modifer" layoutX="735.0" layoutY="485.0" mnemonicParsing="false" onAction="#gotoadd" text="modifier" />
+      <ChoiceBox fx:id="choix" layoutX="695.0" layoutY="525.0" prefWidth="150.0" />
+      <ImageView fx:id="view" fitHeight="134.0" fitWidth="150.0" layoutX="69.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="recherche" layoutX="113.0" layoutY="148.0" onKeyTyped="#recherche" prefHeight="31.0" prefWidth="214.0" />
+      <Label fx:id="titre2" layoutX="33.0" layoutY="486.0" prefHeight="60.0" prefWidth="640.0" textFill="WHITE">
+         <font>
+            <Font name="Blackadder ITC" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="titre1" layoutX="8.0" layoutY="222.0" prefHeight="60.0" prefWidth="264.0" textFill="WHITE">
+         <font>
+            <Font name="Blackadder ITC" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="upload" layoutX="740.0" layoutY="399.0" mnemonicParsing="false" onAction="#uploadImage" text="upload" />
+      <AnchorPane fx:id="asla" layoutX="-10.0" layoutY="-31.0" prefHeight="144.0" prefWidth="984.0" style="-fx-background-color: #87A173;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="83.0" layoutX="103.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="251.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/forum.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="62.0" layoutX="407.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/reglage.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="scroll" layoutX="62.0" layoutY="189.0" prefHeight="461.0" prefWidth="597.0" style="-fx-background-color: #FFFFFF;">
+         <content>
+            <GridPane fx:id="grid" prefHeight="371.0" prefWidth="272.0" styleClass="gride" stylesheets="@../utils/style.css">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

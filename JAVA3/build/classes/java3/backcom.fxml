@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java3.BackcomController">
+   <children>
+      <ScrollBar layoutX="579.0" layoutY="2.0" orientation="VERTICAL" prefHeight="394.0" prefWidth="14.0" />
+      <Accordion layoutX="251.0" layoutY="22.0" />
+      <TableView fx:id="personsTable" layoutX="45.0" layoutY="59.0" prefHeight="200.0" prefWidth="520.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="50.4000244140625" text="id" />
+          <TableColumn fx:id="contenu" prefWidth="468.0" text="Contenu" />
+        </columns>
+      </TableView>
+     
+      <Button fx:id="btnDelete" layoutX="118.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonAction" text="delete" />
+      <Label fx:id="theLabel" layoutX="150.0" layoutY="312.0" />
+      <Button fx:id="display" layoutX="45.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonAction" text="display" />
+   </children>
+</AnchorPane>
